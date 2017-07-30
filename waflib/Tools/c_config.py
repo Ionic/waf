@@ -1426,7 +1426,7 @@ def multicheck(self, *k, **kw):
 
 @conf
 def check_gcc_o_space(self, mode='c'):
-	if int(self.env.CC_VERSION[0]) > 4:
+	if (int(self.env.CC_VERSION[0]) > 4) or (int(self.env.CC_VERSION[0]) == 4 and int(self.env.CC_VERSION[1]) > 4):
 		# this is for old compilers
 		return
 	self.env.stash()
